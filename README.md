@@ -16,6 +16,7 @@
 * 易集成
 * 支持网页/SSO
 * 扩展性好
+* 可定制
 
 ===
 
@@ -58,7 +59,7 @@
 
 #####XMShareView结构介绍：
 名称            | 解释
--              | -
+---            | ---
 CommonMarco.h  | 通用宏文件，包含APP Key等宏
 ExtView/       | 扩展View，VerticalUIButton为图片文件垂直对齐按钮
 Resource/      | 图片等资源，包含微信、QQ、微博图标
