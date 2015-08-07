@@ -1,4 +1,4 @@
-//
+//  QQ分享工具类
 //  XMShareQQUtil.h
 //  XMShare
 //
@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
+
+#import "XMShareUtil.h"
 
 //  分享到QQ的类型
 typedef NS_ENUM(NSInteger, SHARE_QQ_TYPE){
@@ -21,17 +23,16 @@ typedef NS_ENUM(NSInteger, SHARE_QQ_TYPE){
     
 };
 
-@interface XMShareQQUtil : NSObject <TencentSessionDelegate>
+@interface XMShareQQUtil : XMShareUtil <TencentSessionDelegate>
 
-@property (nonatomic, strong) NSString *shareTitle;
-
-@property (nonatomic, strong) NSString *shareText;
-
-@property (nonatomic, strong) NSString *shareUrl;
-
-
+/**
+ *  分享到QQ会话
+ */
 - (void)shareToQQ;
 
+/**
+ *  分享到QQ空间
+ */
 - (void)shareToQzone;
 
 + (instancetype)sharedInstance;

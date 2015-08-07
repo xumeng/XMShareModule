@@ -14,7 +14,7 @@
 #import "WeiboSDK.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
 
@@ -30,6 +30,27 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[url absoluteString] hasPrefix:@"tencent"]) {
+        
+        return [TencentOAuth HandleOpenURL:url];
+        
+    }else if([[url absoluteString] hasPrefix:@"wb"]){
+        
+        return [WeiboSDK handleOpenURL:url delegate:self];
+        
+    }
+    
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [TencentOAuth HandleOpenURL:url];
+}
+
+
 /**
  *  初始化第三方组件
  */
@@ -39,6 +60,10 @@
     
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:APP_KEY_WEIBO];
+    
+}
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
     
 }
 

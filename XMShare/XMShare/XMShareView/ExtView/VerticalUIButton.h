@@ -1,4 +1,4 @@
-//
+//  图片文字垂直对齐按钮
 //  VerticalUIButton.h
 //  XMShare
 //

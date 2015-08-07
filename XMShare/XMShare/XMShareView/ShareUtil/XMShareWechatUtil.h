@@ -1,4 +1,4 @@
-//
+//  微信分享工具类
 //  XMShareWechatUtil.h
 //  XMShare
 //
@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface XMShareWechatUtil : NSObject
+#import "XMShareUtil.h"
 
-@property (nonatomic, strong) NSString *shareTitle;
-
-@property (nonatomic, strong) NSString *shareText;
-
-@property (nonatomic, strong) NSString *shareUrl;
+@interface XMShareWechatUtil : XMShareUtil
 
 
+/**
+ *  分享到微信会话
+ */
 - (void)shareToWeixinSession;
 
+/**
+ *  分享到朋友圈
+ */
 - (void)shareToWeixinTimeline;
 
 + (instancetype)sharedInstance;

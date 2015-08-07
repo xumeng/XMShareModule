@@ -7,7 +7,6 @@
 //
 
 #import "XMShareQQUtil.h"
-#import "CommonMarco.h"
 
 @implementation XMShareQQUtil
 
@@ -36,7 +35,7 @@
     NSString *utf8String = self.shareUrl;
     NSString *theTitle = self.shareTitle;
     NSString *description = self.shareText;
-    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"logo.jpg"], 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(SHARE_IMG, SHARE_IMG_COMPRESSION_QUALITY);
     
     QQApiNewsObject *newsObj = [QQApiNewsObject
                                 objectWithURL:[NSURL URLWithString:utf8String]

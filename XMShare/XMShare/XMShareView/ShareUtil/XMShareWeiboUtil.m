@@ -7,7 +7,6 @@
 //
 
 #import "XMShareWeiboUtil.h"
-#import "CommonMarco.h"
 
 @implementation XMShareWeiboUtil
 
@@ -46,7 +45,7 @@
     webpage.title = self.shareTitle;
     webpage.description = self.shareText;
     //  可改为自定义图片
-    webpage.thumbnailData = UIImageJPEGRepresentation([UIImage imageNamed:@"logo.jpg"], 0.5);
+    webpage.thumbnailData = UIImageJPEGRepresentation(SHARE_IMG, SHARE_IMG_COMPRESSION_QUALITY);
     webpage.webpageUrl = self.shareUrl;
     
     message.mediaObject = webpage;

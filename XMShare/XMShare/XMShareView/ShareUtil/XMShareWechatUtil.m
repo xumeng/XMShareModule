@@ -32,7 +32,7 @@
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = self.shareTitle;
     message.description = self.shareText;
-    [message setThumbImage:[UIImage imageNamed:@"logo.jpg"]];
+    [message setThumbImage:SHARE_IMG];
     
     WXWebpageObject *ext = [WXWebpageObject object];
     ext.webpageUrl = self.shareUrl;

@@ -16,3 +16,4 @@ DerivedData
 *.xcuserstate
 
 *.a
+Vendor/
