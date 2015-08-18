@@ -36,7 +36,7 @@
 
         self.shareView.shareTitle = NSLocalizedString(@"分享标题", nil);
         
-        self.shareView.shareText = NSLocalizedString(@"分享内容1", nil);
+        self.shareView.shareText = NSLocalizedString(@"分享内容", nil);
         
         self.shareView.shareUrl = @"http://xumeng.github.com";
         
