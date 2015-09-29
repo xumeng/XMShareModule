@@ -38,16 +38,23 @@
 {
     
     WBMessageObject *message = [WBMessageObject message];
+    BOOL hadInstalledWeibo = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weibo://"]];
     
-    WBWebpageObject *webpage = [WBWebpageObject object];
-    webpage.objectID = @"identifier1";
-    webpage.title = self.shareTitle;
-    webpage.description = self.shareText;
-    //  可改为自定义图片
-    webpage.thumbnailData = UIImageJPEGRepresentation(SHARE_IMG, SHARE_IMG_COMPRESSION_QUALITY);
-    webpage.webpageUrl = self.shareUrl;
+    if(hadInstalledWeibo){
+        WBWebpageObject *webpage = [WBWebpageObject object];
+        webpage.objectID = @"identifier1";
+        webpage.title = self.shareTitle;
+        webpage.description = self.shareText;
+        //  可改为自定义图片
+        webpage.thumbnailData = UIImageJPEGRepresentation(SHARE_IMG, SHARE_IMG_COMPRESSION_QUALITY);
+        webpage.webpageUrl = self.shareUrl;
+        
+        message.mediaObject = webpage;
+    }
     
-    message.mediaObject = webpage;
+    message.text = [NSString stringWithFormat:@"%@ - %@ %@", self.shareTitle, self.shareText, self.shareUrl];
+    
+    
     return message;
     
 }
