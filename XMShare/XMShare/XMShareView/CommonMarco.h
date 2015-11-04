@@ -39,5 +39,6 @@
 View.layer.borderColor = BorderColor.CGColor;\
 View.layer.borderWidth = BorderWidth;
 
+#define showAlert(_msg){UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:_msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定",nil];[alert show];}
 
 #endif

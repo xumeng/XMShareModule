@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "XMShareView.h"
+#import "CommonMarco.h"
 
 @interface ViewController ()
 
@@ -53,6 +54,23 @@
         }];
         
     }
+}
+
+#pragma mark - 代理回调
+/**
+ *  处理来自微信的请求
+ *
+ *  @param resp 响应体。根据 errCode 作出对应处理。
+ */
+- (void)onResp:(BaseResp *)resp
+{
+    NSString *message;
+    if(resp.errCode == 0) {
+        message = @"分享成功";
+    }else{
+        message = @"分享失败";
+    }
+    showAlert(message);
 }
 
 @end

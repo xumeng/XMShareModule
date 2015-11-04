@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, SHARE_QQ_TYPE){
     
 };
 
-@interface XMShareQQUtil : XMShareUtil <TencentSessionDelegate>
+@interface XMShareQQUtil : XMShareUtil
 
 /**
  *  分享到QQ会话

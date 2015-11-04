@@ -388,6 +388,7 @@
 				TargetAttributes = {
 					3F7A7C181B731B91005D9564 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = VTBQB83AWS;
 					};
 					3F7A7C311B731B91005D9564 = {
 						CreatedOnToolsVersion = 6.4;
@@ -581,6 +582,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XMShare/Vendor/Tencent",
@@ -601,6 +604,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XMShare/Vendor/Tencent",
