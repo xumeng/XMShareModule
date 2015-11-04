@@ -136,6 +136,107 @@ XMShareView.h  | 分享显示视图
 
 ```
 
+### 8. 处理 URL 跳转
+####在 `AppDelegate` 类中实现两个处理 URL 跳转的方法。
+```
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[url absoluteString] hasPrefix:@"tencent"]) {
+        
+//        return [TencentOAuth HandleOpenURL:url];
+        return [QQApiInterface handleOpenURL:url delegate:self];
+        
+    }else if([[url absoluteString] hasPrefix:@"wb"]) {
+        
+        return [WeiboSDK handleOpenURL:url delegate:self];
+        
+    }else if([[url absoluteString] hasPrefix:@"wx"]) {
+
+        //  处理微信回调需要在具体的 ViewController 中处理。
+        ViewController *vc = (ViewController *)self.window.rootViewController;
+        return [WXApi handleOpenURL:url delegate:vc];
+        
+    }
+    
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    if ([[url absoluteString] hasPrefix:@"tencent"]) {
+        
+        return [TencentOAuth HandleOpenURL:url];
+        
+    }else if([[url absoluteString] hasPrefix:@"wb"]) {
+        
+        return [WeiboSDK handleOpenURL:url delegate:self];
+        
+    }else{
+        
+        ViewController *vc = (ViewController *)self.window.rootViewController;
+        return [WXApi handleOpenURL:url delegate:vc];
+        
+    }
+}
+
+```
+
+### 9. 处理分享后的回调
+***特别提醒：（下方方法体内是示例代码，具体业务逻辑请具体实现）***
+* 微信分享：在具体的调用 ViewController 类里面实现微信 `WXApiDelegate` 协议，然后实现以下方法：
+
+```
+- (void)onResp:(BaseResp *)resp
+{
+    NSString *message;
+    if(resp.errCode == 0) {
+        message = @"分享成功";
+    }else{
+        message = @"分享失败";
+    }
+    showAlert(message);
+}
+```
+
+* QQ 分享：在 `AppDelegate` 类中实现 `QQApiInterfaceDelegate` 协议，然后实现以下方法：
+
+```
+- (void)onResp:(QQBaseResp *)resp
+{
+    NSString *message;
+    if([resp.result integerValue] == 0) {
+        message = @"分享成功";
+    }else{
+        message = @"分享失败";
+    }
+    showAlert(message);
+}
+```
+
+* 微博分享：在 `AppDelegate` 类中实现 `WeiboSDKDelegate` 协议，然后实现以下方法：
+
+```
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    NSString *message;
+    switch (response.statusCode) {
+        case WeiboSDKResponseStatusCodeSuccess:
+            message = @"分享成功";
+            break;
+        case WeiboSDKResponseStatusCodeUserCancel:
+            message = @"取消分享";
+            break;
+        case WeiboSDKResponseStatusCodeSentFail:
+            message = @"分享失败";
+            break;
+        default:
+            message = @"分享失败";
+            break;
+    }
+    showAlert(message);
+}
+```
+
 
 # 参考资料
 [QQ iOS SDK 环境搭建](http://wiki.connect.qq.com/ios_sdk%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
