@@ -45,7 +45,6 @@
 
 
 ### 4. 设置URL Schema
-<br>
 1. 程序 —— Targets —— Info —— URL Types
 
 分别添加微信，QQ，微博
@@ -61,7 +60,6 @@
 * *以上均为测试app key，具体可以去对应的开放平台注册*
 
 * *mqqapi 是 tencent 的 app key 转十六进制，不足八位在前面补 0 的结果*
-
 <br>
 2. 在 Info.plist 中添加`LSApplicationQueriesSchemes`项，
 分别添加社交平台的几个白名单：
