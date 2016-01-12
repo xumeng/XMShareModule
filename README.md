@@ -61,7 +61,7 @@
 
 * *mqqapi 是 tencent 的 app key 转十六进制，不足八位在前面补 0 的结果*
 
-
+<br>
 2. 在 Info.plist 中添加`LSApplicationQueriesSchemes`项，
 分别添加社交平台的几个白名单：
 mqq
