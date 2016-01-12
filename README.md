@@ -45,6 +45,7 @@
 
 
 ### 4. 设置URL Schema
+<br>
 1. 程序 —— Targets —— Info —— URL Types
 
 分别添加微信，QQ，微博
