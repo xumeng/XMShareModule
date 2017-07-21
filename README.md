@@ -8,6 +8,7 @@
 该模块会继续完善优化，争取为大家提供一个更快速、更简单、更规范、扩展性更好的集成模块。
 
 ===========
+
 ![图片](https://github.com/xumeng/XMShareModule/blob/master/demo.gif)
 
 # 特点：
@@ -18,7 +19,7 @@
 * 扩展性好
 * 可定制
 
-===
+===========
 
 # 更新 Log
     * 2015-09-29 修复网页微博分享时内容没有传入的 Bug
@@ -61,24 +62,31 @@
 
 * *mqqapi 是 tencent 的 app key 转十六进制，不足八位在前面补 0 的结果*
 <br>
-2. 在 Info.plist 中添加`LSApplicationQueriesSchemes`项，
+2. 在 Info.plist 中添加 `LSApplicationQueriesSchemes` 项，
 分别添加社交平台的几个白名单：
 mqq
+
 mqqopensdkapiV2
+
 mqqapi
+
 weibosdk2.5
+
 weibosdk
+
 weibo
+
 weixin
+
 wechat
 
-具体列表请至获取[iOS 9 应用跳转适配](http://dev.umeng.com/social/ios/ios9)
+具体列表请至获取 [iOS 9 应用跳转适配](http://dev.umeng.com/social/ios/ios9)
 
 
 
 ### 5. 导入XMShareView至项目中
 
-#####XMShareView结构介绍：
+##### XMShareView结构介绍：
 名称            | 解释
 ---            | ---
 CommonMarco.h  | 通用宏文件，包含APP Key等宏
@@ -152,7 +160,7 @@ XMShareView.h  | 分享显示视图
 ```
 
 ### 8. 处理 URL 跳转
-####在 `AppDelegate` 类中实现两个处理 URL 跳转的方法。
+#### 在 `AppDelegate` 类中实现两个处理 URL 跳转的方法。
 ```
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
