@@ -8,7 +8,7 @@
 该模块会继续完善优化，争取为大家提供一个更快速、更简单、更规范、扩展性更好的集成模块。
 
 ===========
-![图片](http://i1.tietuku.com/d62804985316df60.gif)
+![图片](https://github.com/xumeng/XMShareModule/blob/master/demo.gif)
 
 # 特点：
 * 快速
